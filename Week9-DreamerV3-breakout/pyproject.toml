@@ -1,0 +1,84 @@
+[project]
+name = "dreamerv3"
+version = "3.3.1"
+description = "Mastering Diverse Domains through World Models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Danijar Hafner", email = "mail@danijar.com" }
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Core dependencies - platform agnostic
+dependencies = [
+    "ale-py==0.9.0",
+    "autorom[accept-rom-license]==0.6.1",
+    "av",
+    "chex",
+    "colored-traceback",
+    "einops",
+    "elements>=3.19.1",
+    "google-resumable-media>=2.7.2",
+    "granular>=0.20.3",
+    "ipdb",
+    "jaxtyping",
+    "ninjax>=3.5.1",
+    "numpy<2",
+    "optax",
+    "portal>=3.5.0",
+    "ruamel-yaml",
+    "scope>=0.4.4",
+    "tqdm",
+    # JAX without CUDA by default (CPU/TPU compatible)
+    "jax>=0.4.33",
+    "jaxlib>=0.4.33",
+    "imageio>=2.37.0",
+    "imageio-ffmpeg>=0.6.0",
+]
+
+[project.optional-dependencies]
+# CUDA 12 support (Linux/Windows only)
+cuda12 = [
+    "jax[cuda12]==0.4.33",
+    "nvidia-cuda-nvcc-cu12<=12.2",
+]
+
+# CPU-only (explicitly no CUDA)
+cpu = [
+    "jax[cpu]==0.4.33",
+]
+
+[project.urls]
+Homepage = "http://github.com/danijar/dreamerv3"
+
+[project.scripts]
+# Entry point for command-line usage: dreamerv3-train
+dreamerv3-train = "dreamerv3.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+# Both packages are included in the same distribution
+# embodied is a local dependency of dreamerv3
+packages = ["dreamerv3", "embodied"]
+
+# Include non-Python files (like configs.yaml, XML models) in the wheel
+[tool.hatch.build]
+artifacts = [
+  "dreamerv3/*.yaml",
+  "embodied/envs/*.xml",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-xdist>=3.0.0",
+]

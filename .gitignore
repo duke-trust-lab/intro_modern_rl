@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Claude Code local settings
+.claude/
+
+# Logs and Databases
+*.log
+*.sqlite
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Large Binary Files (Models, Videos, Datasets)
+*.zip
+*.mp4
+!/.media/*.mp4
+*.mov
+*.avi
+*.mkv
+*.pth
+*.pt
+*.pkl
+*.h5
+*.onnx
+*.ckpt
+model/
+models/
+videos/
+logs/
+tensorboard/
+checkpoints/
