@@ -1,127 +1,46 @@
-# AIPI 531 - Introduction to Modern Reinforcement Learning
+# Introduction to Modern Reinforcement Learning - Lab
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Code repository for the **AIPI 531: Introduction to Modern Reinforcement Learning** course. This project contains assignments, weekly exercises, and implementations of various RL algorithms.
+## About the course
+#### Introduction to Modern Reinforcement Learning (AIPI 590)
+**Taught by Dr. Brinnae Bent, Duke University**
 
-## Project Structure
+This course provides a comprehensive, hands-on introduction to reinforcement learning (RL), bridging foundational theory with state-of-the-art methods used in modern AI systems. Students will learn how agents learn from interaction through the lens of Markov Decision Processes, value functions, and policy optimization. Beginning with classical tabular methods, the course progresses through deep RL architectures (DQN, PPO), human-in-the-loop learning (RLHF), and advanced topics in RL.
 
-This repository uses a **monorepo workspace** architecture. Each subfolder is an **independent project** with its own dependencies and virtual environment:
+Weekly labs emphasize implementation and experimentation and four open-ended challenges integrate concepts like safety, generalization, and alignment. By the end of the semester, students will be equipped to design, train, and critically evaluate RL agents.
 
-```
-intro_modern_rl/
-├── Week2-QLearning-FrozenLake/    # Independent project
-├── Week3-DQN-CartPole/            # Independent project
-├── Week4-PPO-minigrid/            # Independent project
-├── ...
-├── Assignment1-PPO-Dynamic/       # Independent project
-├── Assignment2-HuggingFace-RLHF/  # Independent project
-└── ...
-```
+Please view the course website for more information: XX
 
-- **Weeks**: Weekly coding exercises covering RL fundamentals
-- **Assignments**: Major course projects with more complex implementations
+## Labs
 
-> **Note**: The root directory contains no runnable code. You must navigate into a specific subfolder to run any code.
+| Lab | Title | Objectives |
+|-----|-------|------------|
+| **1** | Alignment Cleaning Robot Challenge | Warm up to reinforcement learning |
+| **2** | Tabular RL on FrozenLake: Planning vs Learning | Describe an RL problem as an MDP ⟨S, A, P, R, γ⟩; Compute an optimal value function using Value Iteration (planning; model-based); Learn an optimal action-value function using Q-learning (learning; model-free); Explain how both use Bellman optimality backups |
+| **3** | Reward Design & Failure Modes | Design reward functions and explain behavioral implications; Anticipate unintended behaviors induced by reward optimization; Diagnose and mitigate reward-design failures; Connect reward specification choices to real-world RL failures |
+| **4** | CartPole with DQN Variations | Train a baseline DQN using RL Zoo 3; Diagnose stability via learning curves and evaluation; Implement Dueling DQN; Independently implement Double DQN |
+| **5** | PPO on MiniGrid Dynamic Obstacles | Identify reward misalignment as a cause of RL failure; Understand reward sparsity and long horizons; Apply reward shaping to enable successful learning |
+| **6** | Human-in-the-Loop RL (Part 1) | Design an end-to-end system for collecting human preference data; Construct a small, targeted prompt dataset; Understand how interface, logging, and data-collection choices shape training signals |
+| **7** | Human-in-the-Loop RL (Part 2) | Train a model using preference-based objectives; Compare DPO vs KL-regularized RL; Observe alignment drift and over-optimization |
+| **8** | World Models with DreamerV3 | Explain world-model RL and latent imagination; Describe the DreamerV3 loop; Run DreamerV3 end-to-end and evaluate behavior |
+| **9** | AIRL on Lunar Lander | Explain the difference between RL, IRL, and imitation learning; Describe how AIRL learns rewards adversarially; Evaluate whether learned policies match expert behavior |
+| **10** | Is This the Same Experiment? | Engineer reproducible RL experiments; Separate training from evaluation; Diagnose instability with multi-seed experiments; Detect regressions using golden trajectory tests; Make controlled algorithmic changes |
 
-## Getting Started
-
-### Prerequisites
-
-- Python 3.10+
-- [uv](https://docs.astral.sh/uv/) (Recommended for dependency management)
-
-### Quick Start (Recommended)
-
-Each subfolder is a standalone project. To run any project:
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/duke-trust-lab/intro_modern_rl.git
-cd intro_modern_rl
-
-# 2. Navigate to the project you want to run
-cd Assignment1-PPO-Dynamic
-
-# 3. Install dependencies (creates .venv automatically)
-uv sync
-
-# 4. Run the code
-uv run python main.py
-```
-
-### Alternative: Using pip
-
-If you prefer not to use `uv`:
-
-```bash
-cd Assignment1-PPO-Dynamic
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -e .
-python main.py
-```
-
-## Usage
-
-Each subfolder is a standalone project. Depending on the project, you may find:
-
-| File | Purpose | How to Run |
-|------|---------|------------|
-| `main.py` | Command-line script for local execution | `uv run python main.py` |
-| `main.ipynb` | Jupyter notebook for Colab or local notebook server | Open in Colab or Jupyter |
-| `pyproject.toml` | Project dependencies | Used by `uv sync` or `pip install -e .` |
-
-> **Note**: Not all projects have both `main.py` and `main.ipynb`. Check each subfolder for available files.
-
-### Running Locally (Command Line)
-
-```bash
-cd Assignment1-PPO-Dynamic
-uv sync
-uv run python main.py
-```
-
-### Running on Google Colab / Jupyter
-
-Projects with `main.ipynb` can be opened directly in Google Colab or any Jupyter environment. The first cell installs all dependencies automatically:
-
-```python
-# First cell in notebook - installs dependencies from pyproject.toml
-%pip install -q -e .
-```
-
-To run locally with Jupyter:
-
-```bash
-cd Week2-QLearning-FrozenLake
-uv sync
-uv run jupyter lab
-# Then open main.ipynb
-```
-
-### Troubleshooting
-
-If `uv sync` fails due to platform compatibility issues:
-```bash
-uv lock --upgrade
-uv sync
-```
-
-## Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+## Additional Code
+Xiaoquan Kong has put together additional code examples beyond the labs, which can be found in the subrepo 'examples'.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Third-Party Code
+#### Third-Party Code
 
 This repository includes third-party code with separate licensing:
 
-- **Week9-DreamerV3-breakout**: Contains code from [DreamerV3](https://github.com/danijar/dreamerv3) by Danijar Hafner, licensed under the MIT License. See [Week9-DreamerV3-breakout/LICENSE](Week9-DreamerV3-breakout/LICENSE) for details.
+- **lab8**: Contains code from [DreamerV3](https://github.com/danijar/dreamerv3) by Danijar Hafner, licensed under the MIT License. 
 
 ## Contributors
 
-See [CONTRIBUTORS.md](CONTRIBUTORS.md) for a list of contributors.
+- **Brinnae Bent, PhD** ([@brinnaebent](https://github.com/brinnaebent)) - Course designer and instructor
+- **Xiaoquan Kong** ([@howl-anderson](https://github.com/howl-anderson)) - Initial code implementation (2025)
