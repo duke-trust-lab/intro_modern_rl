@@ -1,1 +1,0 @@
-python -m rl_zoo3.train --algo dqn --env CartPole-v1 -f logs/ -c dqn.yaml --log-interval 1000 --seed 42
