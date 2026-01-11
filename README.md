@@ -10,7 +10,7 @@ This course provides a comprehensive, hands-on introduction to reinforcement lea
 
 Weekly labs emphasize implementation and experimentation and four open-ended challenges integrate concepts like safety, generalization, and alignment. By the end of the semester, students will be equipped to design, train, and critically evaluate RL agents.
 
-Please view the course website for more information: XX
+Please view the course website for more information: [Website](https://www.tomorrowtoolbox.com/courses/imrl)
 
 ## Labs
 
