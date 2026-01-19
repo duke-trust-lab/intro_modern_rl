@@ -1,5 +1,5 @@
 # Lab 2
-# CartPole with DQN variations using Stable-Baselines3
+# Tabular RL on FrozenLake: Planning vs Learning
 
 ### Instructions:
 Follow along with the lab notebook, answering the checkpoint questions and filling in the code. 
